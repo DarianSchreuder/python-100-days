@@ -22,10 +22,12 @@ import random
 print(art.logo)
 
 bank_balance = 1000
-cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+
 
 def pick_card():
-    return cards[random.randint(0,12)]
+    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+    card = random.choice(cards)
+    return card
 
 def calcTotal(list:list):
     return sum(list)
@@ -86,7 +88,7 @@ def checkWin(player_list:list, computer_list:list,bank_balance,gamble_amount):
 def deal(bank_balance,gamble_amount):
     player_cards = []
     computer_cards = []
-    for i in range(0, 2):
+    for _ in range(2):
         player_cards.append(pick_card())
         computer_cards.append(pick_card())
     done = False
@@ -114,7 +116,7 @@ def deal(bank_balance,gamble_amount):
     
 
 while bank_balance > 0:
-    gamble_amount = int(input("How much would you like to gamble? (All in?: -1): "))
+    gamble_amount = int(input("How much would you like to gamble? (All in?: -1)': "))
     
     if (gamble_amount == -1):
         print("All IN!")

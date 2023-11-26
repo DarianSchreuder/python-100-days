@@ -17,9 +17,8 @@
 ## Cards are not removed from the deck as they are drawn.
 ## The computer is the dealer.
 import os
-import art
 import random
-print(art.logo)
+
 
 bank_balance = 1000
 

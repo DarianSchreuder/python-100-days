@@ -9,10 +9,13 @@ logo = """
                                                                                                                                
 
 """
-import random
+import random, os
+
 NUMBER = random.randint(1,100)
 GUESSED = False
 def guessing_game():
+    os.system("clear")
+    print(logo)
     print("Welcome to the number guessing game")
     print("Im thinking of a number between 1 and 100")
     difficulty = input("Choose a difficulty. Type \"easy\" or \"hard\"")

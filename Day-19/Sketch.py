@@ -15,15 +15,15 @@ def move_backward():
 
 
 def turn_right():
-    new_heading = tim.heading() - 10
+    new_heading = tim.heading() - 90
     tim.setheading(new_heading)
-    tim.forward(10)
+    tim.forward(50)
 
 
 def turn_left():
-    new_heading = tim.heading() + 10
+    new_heading = tim.heading() + 90
     tim.setheading(new_heading)
-    tim.forward(10)
+    tim.forward(50)
 
 
 screen.listen()

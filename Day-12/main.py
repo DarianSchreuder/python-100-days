@@ -1,3 +1,6 @@
+import os
+import random
+
 logo = """
 
   _______  __    __   _______     _______.     _______. __  .__   __.   _______      _______      ___      .___  ___.  _______ 
@@ -9,10 +12,12 @@ logo = """
                                                                                                                                
 
 """
-import random, os
 
-NUMBER = random.randint(1,100)
+NUMBER = random.randint(1, 100)
 GUESSED = False
+lives = 0
+
+
 def guessing_game():
     os.system("clear")
     print(logo)
@@ -25,9 +30,9 @@ def guessing_game():
         lives = 5
     else:
         print("invalid")
-    global NUMBER, GUESSED
-    
-    while lives > 0 and  GUESSED == False:
+    global NUMBER, GUESSED, lives
+
+    while lives > 0 and GUESSED is False:
         print(f"You have {lives} attempts remaining.")
         guess = int(input("Make a guess: "))
         if guess <= 100 or guess >= 1:
@@ -42,6 +47,6 @@ def guessing_game():
         else:
             print(f"Invalid number {guess}")
         print("Guess Again")
-    
+
 
 guessing_game()

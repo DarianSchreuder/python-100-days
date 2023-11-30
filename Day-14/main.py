@@ -17,7 +17,7 @@ def play_game():
     user_decision = input("Who has more followers? Type 'A' or 'B': ")
 
     os.system("clear")
-    
+
     if user_decision == "A":
         if FIRST_OPTION["follower_count"] > SECOND_OPTION["follower_count"]:
             display_result(True)
@@ -41,22 +41,24 @@ def play_game():
             return True
         elif FIRST_OPTION["follower_count"] > SECOND_OPTION["follower_count"]:
             display_result(False)
-            return False  
+            return False
         else:
             print(f"Tie current SCORE : {SCORE}")
             SECOND_OPTION = choice(data)
             return True
-            
-def display_result(bool):
+
+
+def display_result(result):
     global SCORE
-    if (bool == True):
+    if result:
         SCORE += 1
         print(f"You're right! Current SCORE: {SCORE}")
     else:
         print(f"Incorrect! Final SCORE: {SCORE}")
 
+
 while True:
     print(logo)
-    bool = play_game()
-    if bool == False:
+    valid = play_game()
+    if not valid:
         break

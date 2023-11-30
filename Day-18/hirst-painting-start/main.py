@@ -32,7 +32,7 @@ for x in range(12):
     x_pos += x
     for y in range(12):
         y_pos += y
-        t.delay(70)
+        t.delay(10)
         brush.dot(20, choice(rgb_colors))
 
         brush.forward(50)

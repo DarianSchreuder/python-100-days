@@ -5,10 +5,13 @@ from quiz_brain import QuizBrain
 question_bank = []
 
 for key in range(0, len(question_data)):
-    question_bank.append(Question(question_data[key]["text"],question_data[key]["answer"]))
+    question_bank.append(Question(question_data[key]["question"], question_data[key]["correct_answer"]))
     
 quiz = QuizBrain(question_bank)
 is_done = False
-while is_done == False:
+while quiz.still_has_questions():
     
-    is_done = quiz.next_question()
+    quiz.next_question()
+
+print("You've completed the quiz.")
+print(f"Your final score was: {quiz.score}/{quiz.question_number}")

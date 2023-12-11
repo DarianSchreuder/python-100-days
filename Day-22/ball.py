@@ -1,24 +1,24 @@
 from turtle import Turtle
 
-BALL_RADIUS = 1
-
 
 class Ball(Turtle):
     def __init__(self):
         super().__init__()
-        self.shape("square")
-        self.penup()
-        self.shapesize(BALL_RADIUS)
+        self.shape("circle")
         self.color("white")
-        self.speed("fastest")
-        self.velocity = [10, 10]
+        self.penup()
+        self.x_move = 8
+        self.y_move = 20
 
     def move(self):
-        self.forward(10)
-        self.move(90)
+        self.goto(self.xcor() + self.x_move, self.ycor() + self.y_move)
 
     def bounce_wall(self):
-        self.velocity = (self.velocity[0], -self.velocity[1])
+        self.y_move *= -1
 
     def bounce_paddle(self):
-        self.velocity = (-self.velocity[0], self.velocity[1])
+        self.x_move *= -1
+
+    def reset_position(self):
+        self.goto(0, 0)
+        self.bounce_paddle()
